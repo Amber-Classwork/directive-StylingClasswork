@@ -1,0 +1,29 @@
+<button (click)="toggle('image')">Toggle Image</button>
+<button (click)="toggle('video')">Toggle Video</button>
+<button (click)="toggle('text')">Toggle Text</button>
+
+
+<div class="displayInfo" [ngSwitch]="content">
+
+    <ng-container *ngSwitchCase="'image'">
+        <img src="/assets/Screenshot 2022-07-21 115952.png" alt="">
+    </ng-container>
+    <ng-container *ngSwitchCase="'video'">
+        <video src="/assets/videoplayback.mp4" controls></video>
+    </ng-container>
+    <ng-container *ngSwitchCase="'text'">
+        <p>Software Engineering is a great field that allows for the possiblility of creating something from nothing. It is so great that it is almost godlike.</p>
+        <p>The field of Software Engineering is so broad that it allows for us to delve into almost completely areas which includes, Security, Networking etc.</p>
+        <p>The reason for my choice of career is due to the fact that the field is quite easy to start up.I don't have to spend too much money to learn or to develop anything practical </p>
+    </ng-container>
+
+</div>
+
+<div class="clickDetail">
+    <div *ngFor="let element of clickArr">
+        <p [ngStyle]="{
+            'background-color': getBgFromElement(element.button),
+            'color': getColorFromElement(element.button)
+        }">{{element.button}} was clicked {{element.times}}</p>
+    </div>
+</div>
